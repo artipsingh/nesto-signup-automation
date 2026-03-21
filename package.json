@@ -1,0 +1,25 @@
+{
+  "name": "nesto-signup-automation",
+  "version": "1.0.0",
+  "description": "cypress automation for the nesto login flow",
+  "homepage": "https://github.com/artipsingh/nesto-signup-automation#readme",
+  "bugs": {
+    "url": "https://github.com/artipsingh/nesto-signup-automation/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/artipsingh/nesto-signup-automation.git"
+  },
+  "license": "ISC",
+  "author": "Arti P Singh",
+  "type": "module",
+  "main": "index.js",
+  "scripts": {
+    "test": "npm run test"
+  },
+  "devDependencies": {
+    "@tsconfig/cypress": "^1.0.5",
+    "cypress": "^15.12.0",
+    "typescript": "^5.9.3"
+  }
+}
