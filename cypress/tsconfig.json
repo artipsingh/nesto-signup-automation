@@ -1,13 +1,21 @@
 {
     "$schema": "https://www.schemastore.org/tsconfig",
     "compilerOptions": {
-        "target": "es5",
+        "target": "es2020",
+        "module": "es2020",
+        "moduleResolution": "node",
         "lib": [
-            "es5",
+            "es2020",
             "dom"
         ],
         "types": [
-            "cypress"
-        ]
-    }
+            "cypress",
+            "node"
+        ],
+        "strict": true,
+        "esModuleInterop": true
+    },
+    "include": [
+        "**/*.ts"
+    ]
 }

@@ -4,7 +4,7 @@
   "description": "cypress automation for the nesto login flow",
   "homepage": "https://github.com/artipsingh/nesto-signup-automation#readme",
   "bugs": {
-    "url": "https://github.com/artipsingh/nesto-signup-automation/issues"
+    "url": "https://docs.google.com/spreadsheets/d/1wHeoHHBcTfsOx23fMY2TuLEQkQ26nJyhYUNymospNys/edit?gid=0#gid=0"
   },
   "repository": {
     "type": "git",
@@ -15,14 +15,28 @@
   "type": "module",
   "main": "index.js",
   "scripts": {
-    "test": "npm run test"
+    "cy:open": "cypress open",
+    "cy:run": "cypress run",
+    "cy:run:positive": "cypress run --spec 'cypress/e2e/signup.positive.cy.ts'",
+    "cy:run:negative": "cypress run --spec 'cypress/e2e/signup.negative.cy.ts'",
+    "lint": "eslint 'cypress/**/*.ts'",
+    "lint:fix": "eslint 'cypress/**/*.ts' --fix",
+    "format": "prettier --write 'cypress/**/*.ts'",
+    "format:check": "prettier --check 'cypress/**/*.ts'"
   },
   "devDependencies": {
     "@tsconfig/cypress": "^1.0.5",
+    "@typescript-eslint/eslint-plugin": "^8.57.1",
+    "@typescript-eslint/parser": "^8.57.1",
     "axe-core": "^4.11.1",
     "cypress": "^15.12.0",
     "cypress-axe": "^1.7.0",
     "dotenv": "^17.3.1",
+    "eslint": "^10.1.0",
+    "eslint-config-prettier": "^10.1.8",
+    "eslint-plugin-cypress": "^6.2.0",
+    "prettier": "^3.8.1",
+    "prettier-eslint": "^16.4.2",
     "typescript": "^5.9.3"
   }
 }
