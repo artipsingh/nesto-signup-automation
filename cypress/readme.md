@@ -1,6 +1,6 @@
 # Nesto Signup Automation
 
-Cypress + TypeScript test suite for the Nesto signup flow at `REDACTED`
+Cypress + TypeScript test suite for the Nesto signup flow
 
 ## Tech Stack
 - Cypress 
