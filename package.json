@@ -36,7 +36,6 @@
     "eslint-config-prettier": "^10.1.8",
     "eslint-plugin-cypress": "^6.2.0",
     "prettier": "^3.8.1",
-    "prettier-eslint": "^16.4.2",
     "typescript": "^5.9.3"
   }
 }
