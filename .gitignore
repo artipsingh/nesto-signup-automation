@@ -3,3 +3,5 @@ dist/
 cypress/screenshots/
 cypress/videos/
 .env
+.env.local
+.env.*
