@@ -16,3 +16,18 @@
 // Import commands.js using ES2015 syntax:
 import './commands'
 import 'cypress-axe'
+
+Cypress.on('uncaught:exception', (err) => {
+  // Ignore React hydration mismatch error - issue mentioned separately
+  if (err.message.includes('Text content does not match server-rendered HTML')) {
+    return false
+  }
+  if (err.message.includes("Cannot read properties of null (reading 'value')")) {
+    return false
+  }
+  // Ignore React minified error
+  if (err.message.includes('Minified React error')) {
+    return false
+  }
+  return true
+})

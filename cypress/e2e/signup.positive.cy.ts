@@ -1,12 +1,20 @@
-import { fillSignupForm, signupSelectors } from '../support/pageObjects/signup.po'
 import { API_TIMEOUT } from '../support/signupConstants'
 
 describe('Signup Page', () => {
   beforeEach(() => {
+    cy.intercept('GET', '/api/geolocation/all').as('geolocation')
+    // Cypress doesn't have Facebook Pixel or full UTM context like a real browser session
+    // Patching these fields to match what a real browser submission sends
+    // Remove if nesto makes these fields optional on the backend
+    cy.intercept('POST', '/api/accounts', (req) => {
+      req.body.utmTerm = '(not provided)'
+      req.body.fbp = 'fb.1.1774228739000.000000000000000000'
+      req.continue()
+    }).as('accountCreation')
+
     cy.visit('/signup')
     cy.url().should('include', '/signup')
-
-    cy.intercept('POST', '/api/accounts').as('accountCreation')
+    cy.wait('@geolocation', { timeout: API_TIMEOUT })
   })
 
   it('should load english by default', () => {})
@@ -14,22 +22,6 @@ describe('Signup Page', () => {
   it('should load the correct default language', () => {})
   it('should have all fields visible', () => {})
   it('should have all of the links are valid', () => {})
-  it.only('should return status 201 when account is created', () => {
-    fillSignupForm({
-      firstName: 'Arti',
-      lastName: 'Singh',
-      email: 'arti.p.singh+qanesto2@gmail.com',
-      phoneCountry: 'Canada',
-      phone: '647-1111-1234',
-      password: 'hennyPenny1!',
-      confirmPassword: 'hennyPenny1!',
-    })
-    cy.get(signupSelectors.submit).click()
-
-    cy.wait('@accountCreation', { timeout: API_TIMEOUT })
-      .its('response.statusCode')
-      .should('eq', 201)
-  })
   it('should have the same data in the payload and in formsubmission', () => {})
   it('should log the person in when the account creation is at a 201', () => {})
   it('should send a welcome email when the account is created', () => {})

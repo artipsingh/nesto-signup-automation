@@ -17,6 +17,7 @@
   "scripts": {
     "cy:open": "cypress open",
     "cy:run": "cypress run",
+    "cy:run:createUser": "cypress run --spec 'cypress/e2e/signup.createUser.cy.ts'",
     "cy:run:positive": "cypress run --spec 'cypress/e2e/signup.positive.cy.ts'",
     "cy:run:negative": "cypress run --spec 'cypress/e2e/signup.negative.cy.ts'",
     "lint": "eslint 'cypress/**/*.ts'",
@@ -25,6 +26,7 @@
     "format:check": "prettier --check 'cypress/**/*.ts'"
   },
   "devDependencies": {
+    "@faker-js/faker": "^10.3.0",
     "@tsconfig/cypress": "^1.0.5",
     "@typescript-eslint/eslint-plugin": "^8.57.1",
     "@typescript-eslint/parser": "^8.57.1",
