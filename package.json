@@ -20,10 +20,10 @@
     "cy:run:createUser": "cypress run --spec 'cypress/e2e/signup.createUser.cy.ts'",
     "cy:run:positive": "cypress run --spec 'cypress/e2e/signup.positive.cy.ts'",
     "cy:run:negative": "cypress run --spec 'cypress/e2e/signup.negative.cy.ts'",
-    "lint": "eslint 'cypress/**/*.ts'",
-    "lint:fix": "eslint 'cypress/**/*.ts' --fix",
-    "format": "prettier --write 'cypress/**/*.ts'",
-    "format:check": "prettier --check 'cypress/**/*.ts'"
+    "lint": "eslint cypress/**/*.ts",
+    "lint:fix": "eslint cypress/**/*.ts --fix",
+    "format": "prettier --write cypress/**/*.ts",
+    "format:check": "prettier --check cypress/**/*.ts"
   },
   "devDependencies": {
     "@faker-js/faker": "^10.3.0",
