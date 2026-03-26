@@ -6,7 +6,6 @@ Cypress + TypeScript test suite for the Nesto signup flow
 
 - Cypress
 - TypeScript
-- cypress-axe (accessibility)
 
 ## Prerequisites
 
@@ -48,6 +47,7 @@ npm install
 - Google Lighthouse scans
 - Visual regression via Percy
 - Cross-browser via GitHub Actions
+- Accessibility tests with cypress-axe
 
 ## Bugs Found
 
