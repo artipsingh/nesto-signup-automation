@@ -1,5 +1,8 @@
 /// <reference types="cypress" />
 // ***********************************************
+// I chose helper functions over custom Cypress commands because they're easier
+// to type with TypeScript, more explicit about what they do, and don't pollute the global cy namespace.
+// Custom commands make more sense when you need chainability or when commands are shared across many spec files
 // This example commands.ts shows you how to
 // create various custom commands and overwrite
 // existing commands.
