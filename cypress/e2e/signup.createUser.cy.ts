@@ -1,6 +1,6 @@
 import { fillSignupForm, signupSelectors } from '../support/pageObjects/signup.po'
 import { API_TIMEOUT } from '../support/signupConstants'
-import { generateTestUser } from '../support/testData'
+import { generateTestUser } from '../support/data/userCreationAndMocks'
 
 describe('Signup Page', () => {
   beforeEach(() => {
@@ -20,7 +20,7 @@ describe('Signup Page', () => {
   })
 
   it('should return status 201 when an account is created', () => {
-    //fully working test, skipping as I work on the other tests
+    //using mocks as I did not want to hit the real endpoints during this test.
     const user = generateTestUser()
     fillSignupForm(user)
     cy.get(`[data-testid="agreement-checkbox"]`).click()

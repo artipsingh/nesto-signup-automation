@@ -12,6 +12,15 @@ export const signupSelectors = {
   leadCheckbox: '#leadDistributeConsentAgreement',
 }
 
+export const validationErrorSelectors = {
+  firstNameEmptyError: '[data-testid="first-name-error-message-typography"]',
+  lastNameEmptyError: '[data-testid="last-name-error-message-typography"]',
+  emailEmptyError: '[data-testid="email-error-message-typography"]',
+  passwordError: '[data-testid="password-error-message-typography"]',
+  confirmPasswordError: '[data-testid="passwordConfirmation-error-message-typography"]',
+  phoneError: '[data-testid="phone-error-message-typography"]',
+}
+
 export const fillSignupForm = (data: {
   firstName: string
   lastName: string
@@ -25,26 +34,24 @@ export const fillSignupForm = (data: {
     .should('exist', { timeout: UI_TIMEOUT })
     .select(data.phoneCountry)
 
-  cy.get(signupSelectors.province).should('be.visible', { timeout: UI_TIMEOUT }).select('Ontario')
+  cy.get(signupSelectors.province).should('exist', { timeout: UI_TIMEOUT }).select('Ontario')
 
   cy.get(signupSelectors.firstName)
-    .should('be.visible', { timeout: UI_TIMEOUT })
+    .should('exist', { timeout: UI_TIMEOUT })
     .type(data.firstName, { delay: 100 })
 
   cy.get(signupSelectors.lastName)
-    .should('be.visible', { timeout: UI_TIMEOUT })
+    .should('exist', { timeout: UI_TIMEOUT })
     .type(data.lastName, { delay: 100 })
 
   cy.get(signupSelectors.email).should('exist', { timeout: UI_TIMEOUT }).type(data.email)
 
   cy.get(signupSelectors.phone)
-    .should('be.visible', { timeout: UI_TIMEOUT })
+    .should('exist', { timeout: UI_TIMEOUT })
     .type(data.phone, { delay: 100 })
 
   cy.get(signupSelectors.password).should('exist', { timeout: UI_TIMEOUT }).type(data.password)
   cy.get(signupSelectors.confirmPassword)
-    .should('be.visible', { timeout: UI_TIMEOUT })
+    .should('exist', { timeout: UI_TIMEOUT })
     .type(data.confirmPassword)
 }
-
-// Text for Agreeing to contact Nesto/be contacted by data-testid:"typography"

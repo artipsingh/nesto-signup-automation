@@ -1,9 +1,9 @@
-import { defineConfig } from "cypress";
+import { defineConfig } from 'cypress'
 import * as dotenv from 'dotenv'
 dotenv.config()
 
 export default defineConfig({
-  allowCypressEnv: true,
+  allowCypressEnv: false,
   screenshotOnRunFailure: true,
   scrollBehavior: 'top',
   taskTimeout: 60000,
@@ -14,7 +14,7 @@ export default defineConfig({
   viewportWidth: 1280,
   waitForAnimations: true,
   watchForFileChanges: true,
-  defaultCommandTimeout:10000,
+  defaultCommandTimeout: 10000,
 
   e2e: {
     slowTestThreshold: 10000,
@@ -27,4 +27,4 @@ export default defineConfig({
       // implement node event listeners here
     },
   },
-});
+})

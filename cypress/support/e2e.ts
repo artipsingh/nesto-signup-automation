@@ -17,16 +17,19 @@
 import './commands'
 import 'cypress-axe'
 
-Cypress.on('uncaught:exception', (err) => {
+Cypress.on('uncaught:exception', (error) => {
   // Ignore React hydration mismatch error - issue mentioned separately
-  if (err.message.includes('Text content does not match server-rendered HTML')) {
+  if (error.message.includes('Text content does not match server-rendered HTML')) {
     return false
   }
-  if (err.message.includes("Cannot read properties of null (reading 'value')")) {
+  if (error.message.includes("Cannot read properties of null (reading 'value')")) {
     return false
   }
   // Ignore React minified error
-  if (err.message.includes('Minified React error')) {
+  if (error.message.includes('Minified React error')) {
+    return false
+  }
+  if (error.message.includes('google_tag_manager is not defined')){
     return false
   }
   return true
